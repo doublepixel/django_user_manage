@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login  # 引入django内置的方法用户认证和用户管理
-from .forms import LoginForm
+from .forms import LoginForm, RegistrationForm
 # Create your views here.
 
 # 创建登录视图函数user_login
@@ -25,3 +25,18 @@ def user_login(request):        # 视图函数必须使用 request作为第一�
     if request.method == "GET":
         login_form = LoginForm()
         return render(request, "account/login.html", {"form":login_form})
+
+
+def register(request):
+    if request.method == "POST":
+        user_form = RegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)     # 仅生成数据对象，不保存至数据库中
+            new_user.set_password(user_form.cleaned_data['password'])       # 设置该数据的对象密码
+            new_user.save()
+            return HttpResponse("successfully")
+        else:
+            return HttpResponse("sorry, your can not register!")
+    else:
+        user_form = RegistrationForm()
+        return render(request, "account/register.html", {"form":user_form})

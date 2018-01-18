@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^new_login/$', auth_views.login, {"template_name": "account/login.html"}),          # 传新的模板文件，需配置路径
     # url(r'^logout/$', auth_views.logout, name="user_logout"),  # 退出登录
     url(r'^logout/$', auth_views.logout,  {"template_name": "account/logout.html"}, name="user_logout"),  # 使用登录模板、退出登录
+    url(r'^register/$', views.register, name="user_register"),  # 使用登录模板、退出登录
+
 ]
