@@ -3,14 +3,22 @@
     <nav class="navbar nacbar-default" role="navigation">
         <div class="navbar-header">
             <a class="nvbar-brand" href="http://www.itdiffer.com">
-                <img src="{% static 'images/logo.jpg' %}" width="100px">
+                <img src="{% static 'images/back.jpeg' %}" width="100px">
             </a>
         </div>
         <div>
             <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+                {% if user.is_authenticated %}
+                <!--判断用户登录状态，已登录返回True 未登录走else语句-->
+                <li><a href="#">{{ user.username }}</a></li>
+                <li>
+                    <a href="{% url 'account:user_logout'%}">Logout</a>
+                </li>
+                {% else %}
                 <li>
                     <a href="{% url 'account:user_login'%}">LOGIN</a>
                 </li>
+                {% endif %}
             </ul>
             <!--<ul class="nav navbar-nav navbar-right">-->
                 <!--<li>-->

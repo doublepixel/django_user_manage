@@ -12,7 +12,7 @@ def user_login(request):        # 视图函数必须使用 request作为第一�
             cd = login_form.cleaned_data        # 字典类型数据，以键值对的形式记录用户名和密码
             user = authenticate(username=cd['username'], password=cd['password'])
             # prin
-            print(user)
+            # print(user)
             if user:
                 login(request, user)
                 return HttpResponse("welcome You. You have been authenticated successfully.")
