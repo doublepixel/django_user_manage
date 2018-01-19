@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User     # 引入django默认的用户模型User,
-
+from .models import UserProfile
 
 
 '''
@@ -25,3 +25,9 @@ class RegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError("passwords do not match.")
         return cd["password2"]
+
+class UserProfileFrom(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ("phone", "brith")
+
