@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User     # 引入django默认的用户模型User,
-from .models import UserProfile
+from .models import UserProfile, UserInfo
 
 
 '''
@@ -31,3 +31,13 @@ class UserProfileFrom(forms.ModelForm):
         model = UserProfile
         fields = ("phone", "brith")
 
+
+class UserInfoForm(forms.ModelForm):
+    class Meta:
+        model = UserInfo
+        fields = ("school", "company", "profession", "address", "aboutme")
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("email",)

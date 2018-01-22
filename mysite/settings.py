@@ -127,6 +127,9 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = '/blog/'
 
+
+# 在控制器显示发送的邮件
+# 生产环境时必须删掉！！！！！！！！
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 '''
 配置邮箱服务器
