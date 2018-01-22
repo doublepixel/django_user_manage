@@ -126,3 +126,14 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/blog/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+'''
+配置邮箱服务器
+'''
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = 'account@qq.com'
+EMAIL_HOST_PASSWORD = 'email_password'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+DEFUALT_FROM_EMAIL = "account@qq.com"

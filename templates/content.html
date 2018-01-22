@@ -8,13 +8,13 @@
 </div>
 <div class="row">
     <div class="row-xs-12 col-md-8">
-        <p class="text-center"><span>{{ article.author.username }}</span><span style="margin-left:20px">{{ publih }}</span></p>
+        <p class="text-center"><span>{{ article.author.username }}</span><span style="margin-left:20px">{{ publish }}</span></p>
     </div>
 <div>{{ article.body }}</div>
 </div>
     <div class="col-xls-6 col-md-4">
-        <h2>广告</h2>
-        <p>django：www.itdiffer.com</p>
-        <img width="200px" src="https://mrwallpaper.com/wp-content/uploads/Digital-Art-Red-Sunset-Stars-970x606.jpg">
+        <h2>test_blog</h2>
+        <p>django：www.testerhome.com</p>
+        <img width="200px" src="{% static 'images/back.jpeg' %}">
     </div>
     {% endblock %}
