@@ -76,13 +76,13 @@ def myself_edit(request):
         user_form = UserForm(request.POST)
         userprofile_form = UserProfileFrom(request.POST)
         userinfo_form = UserInfoForm(request.POST)
-        if user_form.is_valid() and userprofile_form.is_valid() and userinfo_form.is_valid():
+        if user_form.is_valid() * userprofile_form.is_valid() * userinfo_form.is_valid():
             user_cd = user_form.cleaned_data
-            userprofile_cd = userinfo_form.cleaned_data
+            userprofile_cd = userprofile_form.cleaned_data
             userinfo_cd = userinfo_form.cleaned_data
             print(user_cd["email"])
             user.email = user_cd['email']
-            userprofile.birth = user_cd['birth']
+            userprofile.birth = userprofile_cd['birth']
             userprofile.phone = userprofile_cd['phone']
             userinfo.school = userinfo_cd['school']
             userinfo.company = userinfo_cd['company']
@@ -91,6 +91,7 @@ def myself_edit(request):
             userinfo.aboutme = userinfo_cd['aboutme']
             user.save()
             userprofile.save()
+            userinfo.save()
         return  HttpResponseRedirect('/account/my-information/')
     else:
         user_form = UserForm(instance=request.user)

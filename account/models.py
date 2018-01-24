@@ -14,7 +14,7 @@ class UserProfile(models.Model):        # 对应着要在数据库中创建 user
     '''
 
     def __str__(self):
-        return 'user {}'.format(self.user.username)
+        return 'user:{}'.format(self.user.username)
 
 
 class UserInfo(models.Model):
@@ -29,4 +29,4 @@ class UserInfo(models.Model):
     """
 
     def __str__(self):
-        return "User:()".format(self.user.username)
+        return "user:{}".format(self.user.username)

@@ -5,7 +5,7 @@
     <h1>Edit My Information</h1>
     <div class="row">
         <div class="col-md-6">
-            <form class="form-horizontal" action="." method="post">{% csrf_token %}
+        <form class="form-horizontal" action="." method="post">{% csrf_token %}
             <div class="row">
                 <div class="col-md-4 text-right"><span>用户名:</span></div>
                 <div class="col-md-6 text-left">{{user.username}}</div>
@@ -42,14 +42,14 @@
                 <div class="col-md-4 text-right"><span>个人介绍:</span></div>
                 <div class="col-md-6 text-left">{{userinfo_form.aboutme}}</div>
             </div>
-                <div class="row">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Submit">
-                </div>
-            </form>
-        </div>
-            <div class="col-md-6">
-                <p>picture</p>
+            <div class="row">
+                <input type="submit" class="btn btn-primary btn-lg" value="Submit">
             </div>
+        </form>
         </div>
+        <div class="col-md-6">
+            <p>picture</p>
+        </div>
+    </div>
 </div>
 {% endblock %}
